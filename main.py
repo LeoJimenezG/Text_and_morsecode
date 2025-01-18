@@ -5,9 +5,15 @@ def text_to_morse(codes: {}, text: str) -> str:
     :return: Returns a string containing the converted text into morse code.
     """
     convertedMessage = ""
-    for letter in text:
-        if letter.upper() in codes.keys():
-            convertedMessage += codes[letter.upper()] + " "
+    try:
+        for letter in text:
+            try:
+                if letter.upper() in codes.keys():
+                    convertedMessage += codes[letter.upper()] + " "
+            except Exception as e:
+                print(f"There was an error when checking 'codes' Keys: {e}")
+    except Exception as e:
+        print(f"There was an error when going through 'text': {e}")
 
     return convertedMessage
 
@@ -18,15 +24,21 @@ def morse_to_text(codes: {}, morse: str) -> str:
     :param morse: Accepts a string that contains the morse code message to convert into plain text.
     :return: Returns a string containing the converted morse code message into plain text.
     """
-    formattedCodes = {}
-    for key, value in codes.items():
-        formattedCodes[value] = key
-
-    listCodes = morse.split(" ")
     convertedMessage = ""
-    for code in listCodes:
-        if code in formattedCodes.keys():
-            convertedMessage += formattedCodes[code]
+    try:
+        formattedCodes = {}
+        for key, value in codes.items():
+            formattedCodes[value] = key
+
+        listCodes = morse.split(" ")
+        try:
+            for code in listCodes:
+                if code in formattedCodes.keys():
+                    convertedMessage += formattedCodes[code]
+        except Exception as e:
+            print(f"There was an error when going through 'morse' elements: {e}")
+    except Exception as e:
+        print(f"There was an error when formating 'codes': {e}")
 
     return convertedMessage
 
