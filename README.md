@@ -40,7 +40,7 @@ To convert morse code into plain text, use the `morse_to_text()` function.
 
 ## 💡Notes
 
-- The **`codes` dictionary** must have the same format for both functions to work correctly. Ensure it is consistent and properly structured.  
+- The `codes` dictionary must have the same format for both functions to work correctly. Ensure it is consistent and properly structured.  
 - Both functions rely entirely on the dictionary you provide for conversions. The accuracy of `text_to_morse()` code and `morse_to_text()` conversions will depend on the completeness and correctness of your dictionary.  
 - You can include as few or as many symbols as needed in your dictionary. Customize it to suit your requirements.
 
